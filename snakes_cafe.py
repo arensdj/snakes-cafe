@@ -1,4 +1,4 @@
-# data structures containing lists of the various menu items
+# data structures containing lists of the various menu items and customer name
 appetizers = ['Wings', 'Cookies', 'Spring Rolls']
 entrees = ['Salmon', 'Steak', 'Meat Tornado', 'A Literal Garden']
 desserts = ['Ice Cream', 'Cake', 'Pie']
@@ -6,13 +6,13 @@ drinks = ['Coffee', 'Tea', 'Unicorn Tears']
 
 customer_name = input("Please enter your name: ")
 
-# menu that get
+# an intro message and restaurant menu that gets displayed when program is invoked
 MENU = f"""
 ***********************************************
-**    Welcome, {customer_name}, to the Snakes Cafe!   **
-**    Please see our menu below.             **
-**
-** To quit at any time, type "quit"          **
+**   Welcome, {customer_name}, to the Snakes Cafe!    **
+**   Please see our menu below.              **
+**                                           **
+**   To quit at any time, type "quit"        **
 ***********************************************
 
 Appetizers
@@ -50,9 +50,15 @@ order_prompt = """
 ***********************************
 """
 
+# the user input is assigned to item identifier.  Initially, it is blank so that 
+# while loop can be entered into
 item = ' '
-customer_order = {} # item key, value: # of times ordered
 
+# a dictionary to contain the item key, value of times ordered
+customer_order = {} 
+
+# user is prompted for an order and the order(s) are added to dictionary and 
+# printed to show what was entered 
 item = input(order_prompt)
 while (item != 'quit'):
   if item not in customer_order:
@@ -60,9 +66,8 @@ while (item != 'quit'):
   else:
     customer_order[item] += 1
 
-  # for k, v in (customer_order.items()):
-  #   print(k, v)
-
+  # checks if order is in the dictionary and increments value.  Also formats the
+  # order plurals for the output message.
   for order in customer_order:
     if customer_order[order] > 1:
       order_plural = 'orders'
@@ -73,7 +78,7 @@ while (item != 'quit'):
 
     print(f'** {customer_order[order]} {order_plural} of {order} {have_plural} been added to your meal **')
 
-  # prompt user again for another item
+  # prompt user again for another item to order
   item = input(order_prompt)
 
 print(f'Thank you {customer_name} for visiting Snakes Cafe.')
