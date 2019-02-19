@@ -1,4 +1,4 @@
-
+# data structures containing lists of the various menu items
 appetizers = ['Wings', 'Cookies', 'Spring Rolls']
 entrees = ['Salmon', 'Steak', 'Meat Tornado', 'A Literal Garden']
 desserts = ['Ice Cream', 'Cake', 'Pie']
@@ -6,8 +6,8 @@ drinks = ['Coffee', 'Tea', 'Unicorn Tears']
 
 customer_name = input("Please enter your name: ")
 
+# menu that get
 MENU = f"""
-
 ***********************************************
 **    Welcome, {customer_name}, to the Snakes Cafe!   **
 **    Please see our menu below.             **
@@ -17,7 +17,6 @@ MENU = f"""
 
 Appetizers
 ----------
-
 {appetizers[0]}
 {appetizers[1]}
 {appetizers[2]}
@@ -40,7 +39,6 @@ Drinks
 {drinks[0]}
 {drinks[1]}
 {drinks[2]}
-
 """
 
 print(MENU)
@@ -57,16 +55,6 @@ customer_order = {} # item key, value: # of times ordered
 
 item = input(order_prompt)
 while (item != 'quit'):
-
-  # if (item == 'quit'):
-  #   break
-
-  # if item not in appetizers:
-  #   if item not in entrees:
-  #     if item not in desserts:
-  #       if item not in drinks:
-  #         print(f'The item {item} is not on the menu.')
-  # else:
   if item not in customer_order:
     customer_order[item] = 1
   else:
@@ -87,6 +75,5 @@ while (item != 'quit'):
 
   # prompt user again for another item
   item = input(order_prompt)
-
 
 print(f'Thank you {customer_name} for visiting Snakes Cafe.')
